@@ -41,7 +41,6 @@ public class MarcaController {
     private  Marca update(@RequestParam("id") Long id, @RequestBody Marca marca) {
         Marca marcalocal = marcaData.findById(id).orElse(null);
         if (marcalocal != null) {
-            marcalocal = marca;
             marcalocal.setNome(marca.getNome());
             marcaData.save(marcalocal);
         }
