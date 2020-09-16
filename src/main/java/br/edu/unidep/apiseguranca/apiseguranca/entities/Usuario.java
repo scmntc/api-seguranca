@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,5 +22,14 @@ public class Usuario implements Serializable {
 
     @Column(name = "nome")
     private String nome;
+
+    @OneToOne(mappedBy = "usuario")
+    private Carrinho carrinho;
+
+    @Column(name = "dataCadastro")
+    private LocalDateTime dataCadastro;
+
+    @Column(name = "password")
+    private String password;
 
 }
