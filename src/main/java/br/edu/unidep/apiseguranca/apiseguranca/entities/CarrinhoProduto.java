@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Clock;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -30,4 +32,16 @@ public class CarrinhoProduto implements Serializable {
     @JsonManagedReference
     @JoinColumn(name = "idproduto", foreignKey = @ForeignKey(name = "fk_produto_carrinhoproduto"))
     private Produto produto;
+
+    @Column(name = "qtdproduto")
+    private Integer quantidadeProduto;
+
+    @Column(name = "dataCriacao")
+    private LocalDateTime dataCriacao;
+
+
+    @PrePersist
+    void generateDate() {
+        this.dataCriacao = LocalDateTime.now(Clock.systemUTC());
+    }
 }

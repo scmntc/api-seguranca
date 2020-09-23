@@ -13,12 +13,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "marca")
-@EqualsAndHashCode(of = "idcodigo_marca")
+@EqualsAndHashCode(of = "idmarca")
 public class Marca implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idcodigo_marca;
+    private Long idmarca;
 
     @Column(name = "nome")
     private String nome;

@@ -1,9 +1,6 @@
-CREATE TABLE IF NOT EXISTS segurancaES.carrinho (
-	idcarrinho BIGINT(20) auto_increment NOT NULL,
-	idusuario BIGINT(20) NOT NULL,
-	dataCriacao DATETIME NOT NULL,
-	finalizadoEm DATETIME NULL,
-	CONSTRAINT fk_usuario_carrinho FOREIGN KEY (idusuario) REFERENCES segurancaES.usuario(idusuario)
+CREATE TABLE IF NOT EXISTS usuario (
+    idusuario BIGINT(20) NOT NULL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4

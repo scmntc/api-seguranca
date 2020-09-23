@@ -5,7 +5,7 @@ CREATE TABLE segurancaES.produto (
 	descricao varchar(100) NULL,
 	valor DECIMAL NULL,
 	CONSTRAINT produto_PK PRIMARY KEY (idproduto),
-	CONSTRAINT FK_marca_produto FOREIGN KEY (idmarca) REFERENCES segurancaES.marca(codigo_marca)
+	CONSTRAINT FK_marca_produto FOREIGN KEY (idmarca) REFERENCES segurancaES.marca(idmarca)
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
