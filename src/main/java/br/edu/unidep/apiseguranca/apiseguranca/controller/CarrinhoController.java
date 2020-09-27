@@ -29,7 +29,7 @@ public class CarrinhoController implements Serializable {
 
     @PostMapping
     private Carrinho save(@RequestBody Carrinho carrinho) {
-        return carrinhoData.save(usuario);
+        return carrinhoData.save(carrinho);
     }
 
     @DeleteMapping

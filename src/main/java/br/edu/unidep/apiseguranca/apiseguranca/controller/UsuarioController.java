@@ -5,6 +5,7 @@ import br.edu.unidep.apiseguranca.apiseguranca.entities.Marca;
 import br.edu.unidep.apiseguranca.apiseguranca.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,14 +39,16 @@ public class UsuarioController {
     }
 
     @PutMapping
-    private Usuario update(@RequestParam("id") Long id, @RequestBody Usuario usuario) {
-        Usuario usuarioLocal = usuarioData.findById(id).orElse(null);
-        if (usuarioLocal != null) {
-            usuarioLocal = usuario;
-            usuarioLocal.setNome(usuario.getNome());
-            usuarioData.save(usuarioLocal);
-        }
-        return null;
+    private ResponseEntity<Usuario> update(@RequestParam("id") Long id, @RequestBody Usuario usuario) {
+        return usuarioData.findById(id)
+                .map(usuarioLocal -> {
+                    usuarioLocal.setNome(usuario.getNome());
+                    usuarioLocal.setCpf(usuario.getCpf());
+                    usuarioLocal.setEmail(usuario.getEmail());
+                    usuarioLocal.setDataNasc(usuario.getDataNasc());
+                    usuarioData.save(usuarioLocal);
+                    return ResponseEntity.ok().body(usuarioLocal);
+                }).orElse(ResponseEntity.notFound().build());
     }
 
 }

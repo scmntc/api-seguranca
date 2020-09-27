@@ -24,13 +24,9 @@ public class Produto implements Serializable {
     @Column(name = "nome")
     private String nome;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idmarca", foreignKey = @ForeignKey(name = "FK_marca_produto"))
     private Marca marca;
-
-    @JsonBackReference
-    @OneToMany(mappedBy = "produto")
-    private List<CarrinhoProduto> carrinhoProdutos;
 
     @Column(name = "valor")
     private BigDecimal valor;

@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Clock;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -23,4 +25,14 @@ public class Marca implements Serializable {
     @Column(name = "nome")
     private String nome;
 
+    @Column(name = "criadaEm")
+    private LocalDateTime criadaEm;
+
+    @Column(name = "atualizadaEm")
+    private LocalDateTime atualizadaEm;
+
+    @PrePersist
+    public void preSave() {
+        this.criadaEm = LocalDateTime.now(Clock.systemUTC());
+    }
 }

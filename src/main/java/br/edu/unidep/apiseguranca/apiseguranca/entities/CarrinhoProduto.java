@@ -23,13 +23,13 @@ public class CarrinhoProduto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idcarrinhoproduto;
 
-    @ManyToOne
     @JsonManagedReference
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idcarrinho", foreignKey = @ForeignKey(name = "fk_carrinho_carrinhoproduto"))
     private Carrinho carrinho;
 
-    @ManyToOne
     @JsonManagedReference
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idproduto", foreignKey = @ForeignKey(name = "fk_produto_carrinhoproduto"))
     private Produto produto;
 
@@ -38,7 +38,6 @@ public class CarrinhoProduto implements Serializable {
 
     @Column(name = "dataCriacao")
     private LocalDateTime dataCriacao;
-
 
     @PrePersist
     void generateDate() {
