@@ -1,7 +1,6 @@
 package br.edu.unidep.apiseguranca.apiseguranca.controller;
 
 import br.edu.unidep.apiseguranca.apiseguranca.data.ProdutoData;
-import br.edu.unidep.apiseguranca.apiseguranca.entities.Marca;
 import br.edu.unidep.apiseguranca.apiseguranca.entities.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
