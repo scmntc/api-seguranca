@@ -25,9 +25,6 @@ public class Usuario implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @OneToOne(mappedBy = "usuario")
-    private Carrinho carrinho;
-
     @Column(name = "dataCadastro")
     private LocalDateTime dataCadastro;
 

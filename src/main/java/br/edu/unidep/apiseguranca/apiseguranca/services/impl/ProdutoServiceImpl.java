@@ -5,9 +5,11 @@ import br.edu.unidep.apiseguranca.apiseguranca.entities.Produto;
 import br.edu.unidep.apiseguranca.apiseguranca.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProdutoServiceImpl implements ProdutoService {
 
     @Autowired private ProdutoData produtoData;

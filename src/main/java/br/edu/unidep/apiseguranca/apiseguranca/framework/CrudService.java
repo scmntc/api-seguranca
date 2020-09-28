@@ -31,14 +31,5 @@ public abstract class CrudService<T, ID extends Long> implements ICrudService<T,
         return data().findById((ID) id).orElse(null);
     }
 
-    @Override
-    public ResponseEntity<T> update(ID id, T entity) {
-        return  data().findById(id)
-                .map(register -> {
-                    register = entity;
-                    data().save(register);
-                    return ResponseEntity.ok().body(register);
-                }).orElse(ResponseEntity.notFound().build());
-    }
 
 }

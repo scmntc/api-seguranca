@@ -1,8 +1,7 @@
 package br.edu.unidep.apiseguranca.apiseguranca.framework;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public abstract class CrudController<T, ID extends Long> implements ICrudControl
 
     @Override
     @GetMapping(params = "id")
-    public T findById(Long id) {
+    public T findById(@RequestParam("id") Long id) {
         return (T) service().findById(id);
     }
 
