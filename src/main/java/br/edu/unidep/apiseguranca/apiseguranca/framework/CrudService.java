@@ -4,6 +4,7 @@ package br.edu.unidep.apiseguranca.apiseguranca.framework;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 
+import java.io.Serializable;
 import java.util.List;
 
 public abstract class CrudService<T, ID extends Long> implements ICrudService<T, ID> {
@@ -21,13 +22,13 @@ public abstract class CrudService<T, ID extends Long> implements ICrudService<T,
     }
 
     @Override
-    public void deleteById(ID id) {
-        data().deleteById(id);
+    public void deleteById(Long id) {
+        data().deleteById((ID) id);
     }
 
     @Override
-    public T findById(ID id) {
-        return data().findById(id).orElse(null);
+    public T findById(Long id) {
+        return data().findById((ID) id).orElse(null);
     }
 
     @Override

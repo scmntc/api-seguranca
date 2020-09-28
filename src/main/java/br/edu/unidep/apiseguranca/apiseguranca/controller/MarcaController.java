@@ -1,6 +1,8 @@
 package br.edu.unidep.apiseguranca.apiseguranca.controller;
 
 import br.edu.unidep.apiseguranca.apiseguranca.entities.Marca;
+import br.edu.unidep.apiseguranca.apiseguranca.framework.CrudController;
+import br.edu.unidep.apiseguranca.apiseguranca.framework.ICrudController;
 import br.edu.unidep.apiseguranca.apiseguranca.services.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,9 +14,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/marca")
-public class MarcaController implements Serializable {
+public interface MarcaController extends ICrudController<Marca, Long> {
 
-    @Autowired private MarcaService service;
+    /*@Autowired private MarcaService service;
 
     @GetMapping
     private List<Marca> findAll() {
@@ -41,6 +43,6 @@ public class MarcaController implements Serializable {
     @PutMapping
     private  ResponseEntity<Marca> update(@RequestParam("id") Long id, @RequestBody Marca marca) {
         return service.update(id, marca);
-    }
+    }*/
 
 }

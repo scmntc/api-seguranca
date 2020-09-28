@@ -11,9 +11,9 @@ public interface ICrudService<T, ID extends Long> {
 
     T save(T entity);
 
-    void deleteById(ID id);
+    void deleteById(Long id);
 
-    T findById(ID id);
+    T findById(Long id);
 
     ResponseEntity<T> update(ID id, T entity);
 

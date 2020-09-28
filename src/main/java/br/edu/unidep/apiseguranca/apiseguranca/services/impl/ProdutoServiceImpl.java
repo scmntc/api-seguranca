@@ -2,7 +2,6 @@ package br.edu.unidep.apiseguranca.apiseguranca.services.impl;
 
 import br.edu.unidep.apiseguranca.apiseguranca.data.ProdutoData;
 import br.edu.unidep.apiseguranca.apiseguranca.entities.Produto;
-import br.edu.unidep.apiseguranca.apiseguranca.framework.ICrudService;
 import br.edu.unidep.apiseguranca.apiseguranca.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

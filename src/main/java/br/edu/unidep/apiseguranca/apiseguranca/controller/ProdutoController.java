@@ -2,6 +2,7 @@ package br.edu.unidep.apiseguranca.apiseguranca.controller;
 
 import br.edu.unidep.apiseguranca.apiseguranca.data.ProdutoData;
 import br.edu.unidep.apiseguranca.apiseguranca.entities.Produto;
+import br.edu.unidep.apiseguranca.apiseguranca.framework.ICrudController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +11,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/produto")
-public class ProdutoController {
+public interface ProdutoController extends ICrudController<Produto, Long> {
 
-    @Autowired
+   /* @Autowired
     private ProdutoData produtoData;
 
     @GetMapping
@@ -48,5 +49,5 @@ public class ProdutoController {
             return produtoLocal;
         }
         return null;
-    }
+    }*/
 }
