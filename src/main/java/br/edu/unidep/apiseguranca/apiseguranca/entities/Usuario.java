@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
+import java.time.Clock;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -25,7 +26,7 @@ public class Usuario implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "dataCadastro")
+    @Column(name = "datacadastro")
     private LocalDateTime dataCadastro;
 
     @Column(name = "password", nullable = false)
@@ -41,5 +42,10 @@ public class Usuario implements Serializable {
 
     @Column(name = "datanasc")
     private LocalDate dataNasc;
+
+    @PrePersist
+    void preSave() {
+        this.dataCadastro = LocalDateTime.now(Clock.systemUTC());
+    }
 
 }
